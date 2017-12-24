@@ -112,6 +112,7 @@
             return
           }
         }
+        this.currentIndex = 0
       }
     }
   }
