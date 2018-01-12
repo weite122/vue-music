@@ -31,14 +31,14 @@
             <div class="icon i-left">
               <i class="icon-sequence"></i>
             </div>
-            <div class="icon i-left">
-              <i @click="prev" class="icon-prev" :class="disableCls"></i>
+            <div class="icon i-left" :class="disableCls">
+              <i @click="prev" class="icon-prev"></i>
             </div>
-            <div class="icon i-center" >
+            <div class="icon i-center" :class="disableCls">
               <i @click="togglePlaying" :class="playIcon" ></i>
             </div>
-            <div class="icon i-right">
-              <i @click="next" class="icon-next" :class="disableCls"></i>
+            <div class="icon i-right" :class="disableCls">
+              <i @click="next" class="icon-next"></i>
             </div>
             <div class="icon i-right">
               <i class="icon icon-not-favorite"></i>
@@ -163,7 +163,7 @@
           index = 0
         }
         this.setCurrentIndex(index)
-        if (!this.play) {
+        if (!this.playing) {
           this.togglePlaying()
         }
         this.songReady = false
@@ -177,7 +177,7 @@
           index = this.playlist.length - 1
         }
         this.setCurrentIndex(index)
-        if (!this.play) {
+        if (!this.playing) {
           this.togglePlaying()
         }
         this.songReady = false
