@@ -417,10 +417,10 @@
         if (this.currentLyric) {
           this.currentLyric.stop()
         }
-        this.$nextTick(() => {
+        this.setTimeout(() => {
           this.$refs.audio.play()
           this.getLyric()
-        })
+        }, 1000)
       },
       playing(newPlaying) {
         const audio = this.$refs.audio
