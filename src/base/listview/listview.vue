@@ -1,8 +1,8 @@
 <template>
-  <scroll class="listview" 
-          :data="data" 
-          ref="listview" 
-          :listenScroll = "listenScroll" 
+  <scroll class="listview"
+          :data="data"
+          ref="listview"
+          :listenScroll = "listenScroll"
           :probeType="probeType"
           @scroll="scroll">
     <ul>
@@ -18,8 +18,8 @@
     </ul>
     <div class="list-shortcut" @touchstart="onShortcutTouchStart" @touchmove.stop.prevent = "onShortcutTouchMove">
       <ul>
-        <li v-for="(item,index) in shortcutList" 
-            class="item" 
+        <li v-for="(item,index) in shortcutList"
+            class="item"
             :class="{'current': currentIndex === index}"
             :data-index="index">
           {{item}}
@@ -31,7 +31,7 @@
     </div>
     <div class="loading-container" v-show="!data.length">
       <loading></loading>
-    </div> 
+    </div>
   </scroll>
 </template>
 
@@ -39,7 +39,7 @@
   import Scroll from 'base/scroll/scroll'
   import {getData} from 'common/js/dom'
   import Loading from 'base/loading/loading'
-  
+
   const ANCHOR_HEIGHT = 18
   const TITLE_HEIGHT = 30
   export default {
@@ -118,6 +118,9 @@
           height += item.clientHeight
           this.listHeight.push(height)
         }
+      },
+      refresh() {
+        this.$refs.listview.refresh()
       }
     },
 

@@ -417,7 +417,7 @@
         if (this.currentLyric) {
           this.currentLyric.stop()
         }
-        this.setTimeout(() => {
+        setTimeout(() => {
           this.$refs.audio.play()
           this.getLyric()
         }, 1000)
