@@ -310,6 +310,10 @@
           if (this.playing) {
             this.currentLyric.play()
           }
+        }).catch(() => {
+          this.currentLyric = null
+          this.playingLyric = ''
+          this.currentLineNum = 0
         })
       },
       handleLyric({lineNum, txt}) {
