@@ -2,7 +2,9 @@
   <scroll class="suggest"
           :data="result"
           :pullup="pullup"
-          @scrollToEnd="searchMore()"
+          :beforeScroll="beforeScroll"
+          @scrollToEnd="searchMore"
+          @beforeScroll="listScroll"
           ref="suggest"
   >
     <ul class="suggest-list">
@@ -52,7 +54,8 @@
         page: 1,
         result: [],
         pullup: true,
-        hasMore: true
+        hasMore: true,
+        beforeScroll: true
       }
     },
     methods: {
@@ -82,6 +85,9 @@
         if (!song.list.length || (song.curnum + song.curpage * perpage > song.totalnum)) {
           this.hasMore = false
         }
+      },
+      listScroll() {
+        this.$emit('listScroll')
       },
       searchMore() {
         if (!this.hasMore) {
