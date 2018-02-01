@@ -139,6 +139,9 @@
         }
         this.$emit('select')
       },
+      refresh() {
+        this.$refs.suggest.refresh()
+      },
       ...mapMutations({
         setSinger: 'SET_SINGER'
       }),
