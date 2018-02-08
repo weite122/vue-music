@@ -69,7 +69,7 @@
               <i @click="next" class="icon-next"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon icon-not-favorite"></i>
+              <i class="icon" @click="toggleFavorite(currentSong)" :class="getFavoriteIcon(currentSong)"></i>
             </div>
           </div>
         </div>
@@ -259,7 +259,7 @@
       },
       ready() {
         this.songReady = true
-        this.savePlayhistory(this.currentSong)
+        this.savePlayHistory(this.currentSong)
       },
       error() {
         this.songReady = true
@@ -387,7 +387,7 @@
         setFullScreen: 'SET_FULL_SCREEN'
       }),
       ...mapActions([
-        'savePlayhistory'
+        'savePlayHistory'
       ])
     },
     watch: {
